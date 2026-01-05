@@ -154,21 +154,29 @@ AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://localhost:5173',
-    'https://final-ecommerce-f.onrender.com',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-]
+CORS_ALLOWED_ORIGINS = _split_env_list(
+    "CORS_ALLOWED_ORIGINS",
+    [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://final-ecommerce-f.onrender.com',
+        'https://djangofrontcoti.onrender.com',
+        'http://localhost:8000',
+        'http://127.0.0.1:8000',
+    ],
+)
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',
-    'http://localhost:5173',
-    'https://final-ecommerce-f.onrender.com',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-]
+CSRF_TRUSTED_ORIGINS = _split_env_list(
+    "CSRF_TRUSTED_ORIGINS",
+    [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://final-ecommerce-f.onrender.com',
+        'https://djangofrontcoti.onrender.com',
+        'http://localhost:8000',
+        'http://127.0.0.1:8000',
+    ],
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
